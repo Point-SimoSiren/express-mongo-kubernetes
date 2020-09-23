@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>konttilaivan lokikirja</title>
+</head>
+
+<body>
+  <center>
+    <h1>Konttilaivan lokikirja</h1>
+    <form method="post" action="/item/add">
+      <label for="name">Teksti</label>
+      <input type="text" name="name">
+      <input type="submit" value="tallenna">
+    </form>
+    <h4>Items:</h4>
+    <ul>
+      <% items.forEach(function(item) { %>
+      <li>
+        Tapahtuma: <%= item.name %> | Aika: <%= item.date%> |
+        <form method="post" action="/item/delete/<%= item.id %>">
+          <input type="submit" value="poista">
+        </form>
+      </li>
+      <% }) %>
+    </ul>
+  </center>
+</body>
+
+</html>
